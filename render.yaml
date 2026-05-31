@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: yt-clipper-server
+    env: python
+    buildCommand: pip install -r requirements.txt && apt-get install -y ffmpeg || true
+    startCommand: python app.py
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5000
